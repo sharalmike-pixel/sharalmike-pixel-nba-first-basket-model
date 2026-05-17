@@ -20,6 +20,10 @@ with st.sidebar:
     if bankroll_password_input == st.secrets.get("BANKROLL_PASSWORD", ""):
         bankroll_unlocked = True
         st.success("Bankroll unlocked")
+
+        if st.button("Lock Bankroll"):
+            bankroll_unlocked = False
+            st.rerun()
     elif bankroll_password_input:
         st.error("Incorrect password")
 
