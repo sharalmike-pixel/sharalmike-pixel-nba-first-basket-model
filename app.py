@@ -7,25 +7,35 @@ import os
 os.makedirs("results", exist_ok=True)
 os.makedirs("data", exist_ok=True)
 
-bankroll_unlocked = False
+if "bankroll_unlocked" not in st.session_state:
+    st.session_state["bankroll_unlocked"] = False
 
 with st.sidebar:
     st.markdown("### Private Access")
 
-    bankroll_password_input = st.text_input(
-        "Bankroll Password",
-        type="password"
-    )
+    if not st.session_state["bankroll_unlocked"]:
 
-    if bankroll_password_input == st.secrets.get("BANKROLL_PASSWORD", ""):
-        bankroll_unlocked = True
+        bankroll_password_input = st.text_input(
+            "Bankroll Password",
+            type="password"
+        )
+
+        if bankroll_password_input == st.secrets.get("BANKROLL_PASSWORD", ""):
+            st.session_state["bankroll_unlocked"] = True
+            st.rerun()
+
+        elif bankroll_password_input:
+            st.error("Incorrect password")
+
+    else:
+
         st.success("Bankroll unlocked")
 
         if st.button("Lock Bankroll"):
-            bankroll_unlocked = False
+            st.session_state["bankroll_unlocked"] = False
             st.rerun()
-    elif bankroll_password_input:
-        st.error("Incorrect password")
+
+bankroll_unlocked = st.session_state["bankroll_unlocked"]
 
 from api import (
     get_games,
