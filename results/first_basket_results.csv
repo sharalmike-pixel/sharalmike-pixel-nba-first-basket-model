@@ -4,3 +4,4 @@ date_saved,model_version,schedule_source,schedule_trust_score,slate_verified,mat
 2026-05-14,,,,,MIN vs SAS,MIN,Anthony Edwards,MIN,17.2,438,40.2,🔥 Elite,❌ No Edge,⛔ PASS,,,,
 2026-05-15,v32_provider_rotation_framework,VALIDATED_FALLBACK,45.0,False,MIN vs SAS,MIN,Anthony Edwards,MIN,17.2,438,26.1,⚠️ Decent,❌ No Edge,⛔ PASS,,,,
 2026-05-16,v35_stale_lineup_warning,VALIDATED_FALLBACK,45.0,False,MIN vs SAS,MIN,Anthony Edwards,MIN,18.2,409,26.6,⚠️ Decent,❌ No Edge,⛔ PASS,,,,
+2026-05-17,v43_live_ready_bet_form_fixed,SECONDARY_LIVE_SCHEDULE,85.0,True,CLE vs DET,CLE,Donovan Mitchell,CLE,19.5,375,35.8,✅ Strong,❌ No Edge,⛔ PASS,,,,

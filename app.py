@@ -20,7 +20,12 @@ with st.sidebar:
             type="password"
         )
 
-        if bankroll_password_input == st.secrets.get("BANKROLL_PASSWORD", ""):
+        try:
+            bankroll_password = st.secrets.get("BANKROLL_PASSWORD", "")
+        except Exception:
+            bankroll_password = ""
+
+        if bankroll_password_input == bankroll_password and bankroll_password != "":
             st.session_state["bankroll_unlocked"] = True
             st.rerun()
 
@@ -1305,6 +1310,15 @@ else:
         st.caption(
             f"Requested Lineup Source: {active_lineup_source}"
         )
+
+if not lineups_df.empty:
+
+    lineup_teams = lineups_df["team"].dropna().unique().tolist()
+
+    games = [
+        game for game in games
+        if game["away"] in lineup_teams and game["home"] in lineup_teams
+    ]
  
 if not lineups_df.empty:
 

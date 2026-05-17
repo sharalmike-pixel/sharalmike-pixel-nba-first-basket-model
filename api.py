@@ -1,6 +1,9 @@
 from nba_api.stats.endpoints import (
-    leaguedashplayerstats
+    leaguedashplayerstats,
+    scoreboardv2
 )
+
+from nba_api.stats.static import teams
 
 from nba_api.live.nba.endpoints import scoreboard
 
@@ -8,6 +11,18 @@ from datetime import datetime
 import pandas as pd
 import os
 import json
+
+# ---------------------------------
+# NBA TEAM ID MAP
+# ---------------------------------
+def build_team_id_map():
+
+    nba_teams = teams.get_teams()
+
+    return {
+        team["id"]: team["abbreviation"]
+        for team in nba_teams
+    }
 
 # ---------------------------------
 # VALID NBA TEAMS
@@ -203,9 +218,43 @@ def try_secondary_schedule_source():
 
         print("SECONDARY SCHEDULE SOURCE CHECK STARTED")
 
-        # Placeholder for future secondary source.
-        # This will later reduce dependency on fallback games.
-        return []
+        today = datetime.now().strftime("%m/%d/%Y")
+
+        board = scoreboardv2.ScoreboardV2(
+            game_date=today
+        )
+
+        game_header = board.get_data_frames()[0]
+
+        if game_header.empty:
+            print("SECONDARY SCHEDULE SOURCE EMPTY")
+            return []
+
+        
+        team_id_map = build_team_id_map()
+        
+        secondary_games = []
+
+        for _, row in game_header.iterrows():
+
+            game_status_text = str(
+                row.get("GAME_STATUS_TEXT", "")
+            ).upper()
+
+
+            if "UNNECESSARY" in game_status_text:
+                continue
+
+            secondary_games.append({
+                "game_id": row.get("GAME_ID"),
+                "away": team_id_map.get(row.get("VISITOR_TEAM_ID")),
+                "home": team_id_map.get(row.get("HOME_TEAM_ID"))
+            })
+
+        print("SECONDARY SCHEDULE SOURCE LOADED")
+        print(secondary_games)
+
+        return secondary_games
 
     except Exception as e:
 
