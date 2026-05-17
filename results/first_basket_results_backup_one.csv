@@ -1,0 +1,9 @@
+matchup,predicted_player,predicted_team,probability,odds,edge,confidence,actual_first_basket,correct_pick
+PHI vs NYK,Joel Embiid,PHI,8.0,1208,0.4,⚠️ Small Edge,Joel Embiid,Yes
+MIN vs SAS,Anthony Edwards,MIN,12.6,728,0.5,⚠️ Small Edge,Anthony Edwards,Yes
+MIN vs SAS,Victor Wembanyama,SAS,11.2,833,0.5,⚠️ Small Edge,,
+PHI vs NYK,Tyrese Maxey,PHI,13.6,667,0.6,⚠️ Small Edge,,
+PHI vs NYK,Dominick Barlow,PHI,3.7,2403,-0.3,❌ Pass
+SAS vs MIN,Luke Kornet,SAS,3.0,2986,-0.2,❌ Pass
+PHI vs NYK,PHI,Joel Embiid,PHI,13.6,581,34.8,✅ Strong
+SAS vs MIN,MIN,Anthony Edwards,MIN,14.1,557,36.6,✅ Strong

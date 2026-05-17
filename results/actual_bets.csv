@@ -1,0 +1,3 @@
+date_bet,matchup,player,team,bet_type,odds,units,unit_size,total_bet_amount,result,profit_loss,cash_profit_loss,notes
+2026-05-15,MIN vs SAS,Anthony Edwards,MIN,First Basket,409,1.0,20.0,20.0,Win,4.09,81.8,model best play
+2026-05-16,MIN vs SAS,Victor Wembanyama,SAS,First Basket,100,1.0,20.0,20.0,Pending,0.0,0.0,test

@@ -1,0 +1,6 @@
+date_saved,model_version,schedule_source,schedule_trust_score,slate_verified,matchup,projected_tip_winner,player,team,probability,odds,confidence_score,confidence,edge_tier,model_decision,actual_first_basket,correct_pick,profit_loss,date_completed
+2026-05-12,,,,,MIN vs SAS,MIN,Anthony Edwards,MIN,17.2,438,40.2,🔥 Elite,❌ No Edge,⛔ PASS,,,,
+2026-05-13,,,,,MIN vs SAS,MIN,Anthony Edwards,MIN,17.2,438,40.2,🔥 Elite,❌ No Edge,⛔ PASS,,,,
+2026-05-14,,,,,MIN vs SAS,MIN,Anthony Edwards,MIN,17.2,438,40.2,🔥 Elite,❌ No Edge,⛔ PASS,,,,
+2026-05-15,v32_provider_rotation_framework,VALIDATED_FALLBACK,45.0,False,MIN vs SAS,MIN,Anthony Edwards,MIN,17.2,438,26.1,⚠️ Decent,❌ No Edge,⛔ PASS,,,,
+2026-05-16,v35_stale_lineup_warning,VALIDATED_FALLBACK,45.0,False,MIN vs SAS,MIN,Anthony Edwards,MIN,18.2,409,26.6,⚠️ Decent,❌ No Edge,⛔ PASS,,,,

@@ -1,0 +1,5 @@
+matchup,projected_tip_winner,player,team,probability,odds,confidence_score,confidence,actual_first_basket,correct_pick,profit_loss
+PHI vs NYK,PHI,Joel Embiid,PHI,13.6,581,34.8,✅ Strong,,,
+SAS vs MIN,MIN,Anthony Edwards,MIN,14.1,557,36.6,✅ Strong,,,
+PHI vs NYK,PHI,Tyrese Maxey,PHI,13.5,586,36.0,✅ Strong,,,
+2026-05-11,SAS vs NYK,SAS,Victor Wembanyama,SAS,14.2,552,35.8,✅ Strong,❌ No Edge,⛔ PASS,,,,

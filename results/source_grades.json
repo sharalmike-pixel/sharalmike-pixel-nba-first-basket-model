@@ -1,0 +1,33 @@
+{
+    "https://test.com/lineups.csv": {
+        "successful_refreshes": 0,
+        "failed_refreshes": 2,
+        "total_refreshes": 2,
+        "avg_player_count": [
+            0,
+            0
+        ],
+        "duplicate_issues": 0,
+        "missing_players": 0
+    },
+    "https://docs.google.com/spreadsheets/d/1o_3aTuiz9KuvRPBCvHsbSxvUHnqXkwVGeQnqs757alc/edit?usp=sharing": {
+        "successful_refreshes": 1,
+        "failed_refreshes": 0,
+        "total_refreshes": 1,
+        "avg_player_count": [
+            10
+        ],
+        "duplicate_issues": 0,
+        "missing_players": 0
+    },
+    "https://docs.google.com/spreadsheets/d/1o_3aTuiz9KuvRPBCvHsbSxvUHnqXkwVGeQnqs757alc/edit?gid=0#gid=0": {
+        "successful_refreshes": 1,
+        "failed_refreshes": 0,
+        "total_refreshes": 1,
+        "avg_player_count": [
+            10
+        ],
+        "duplicate_issues": 0,
+        "missing_players": 0
+    }
+}
