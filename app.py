@@ -7,6 +7,22 @@ import os
 os.makedirs("results", exist_ok=True)
 os.makedirs("data", exist_ok=True)
 
+bankroll_unlocked = False
+
+with st.sidebar:
+    st.markdown("### Private Access")
+
+    bankroll_password_input = st.text_input(
+        "Bankroll Password",
+        type="password"
+    )
+
+    if bankroll_password_input == st.secrets.get("BANKROLL_PASSWORD", ""):
+        bankroll_unlocked = True
+        st.success("Bankroll unlocked")
+    elif bankroll_password_input:
+        st.error("Incorrect password")
+
 from api import (
     get_games,
     get_real_player_stats,
@@ -328,13 +344,15 @@ bet_col3.metric("Unit ROI %", f"{actual_bet_roi}%")
 bet_col4.metric("Cash P/L ($)", round(actual_cash_profit, 2))
 bet_col5.metric("Cash ROI %", f"{actual_cash_roi}%")
 
-bank_col1, bank_col2, bank_col3, bank_col4, bank_col5 = st.columns(5)
+if bankroll_unlocked:
 
-bank_col1.metric("Starting Balance", round(starting_balance, 2))
-bank_col2.metric("Deposits", round(total_deposits, 2))
-bank_col3.metric("Withdrawals", round(total_withdrawals, 2))
-bank_col4.metric("Current Bankroll", round(current_bankroll, 2))
-bank_col5.metric("Bankroll ROI %", f"{bankroll_roi}%")
+    bank_col1, bank_col2, bank_col3, bank_col4, bank_col5 = st.columns(5)
+
+    bank_col1.metric("Starting Balance", round(starting_balance, 2))
+    bank_col2.metric("Deposits", round(total_deposits, 2))
+    bank_col3.metric("Withdrawals", round(total_withdrawals, 2))
+    bank_col4.metric("Current Bankroll", round(current_bankroll, 2))
+    bank_col5.metric("Bankroll ROI %", f"{bankroll_roi}%")
 
 
 st.divider()
@@ -1055,7 +1073,7 @@ players_df = get_real_player_stats()
 # BANKROLL MANAGEMENT
 # ---------------------------------
 
-if show_operations:
+if show_operations and bankroll_unlocked:
 
     st.subheader("Bankroll Management")
 
@@ -1115,15 +1133,16 @@ if show_operations:
             
 if show_operations and not bankroll_df.empty:
 
-    with st.expander("Bankroll History", expanded=False):
+    if bankroll_unlocked:
 
-        st.dataframe(
-            bankroll_df.sort_values(
-                "date",
-                ascending=False
-            ),
-            width="stretch"
-        )            
+        with st.expander("Bankroll History", expanded=False):
+            st.dataframe(
+                bankroll_df.sort_values(
+                    "date",
+                    ascending=False
+                ),
+                width="stretch"
+            )            
 
 if show_operations and not bets_df.empty:
 
