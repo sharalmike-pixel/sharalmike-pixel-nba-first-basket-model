@@ -330,8 +330,8 @@ def get_fallback_games():
 
         {
             "game_id": None,
-            "away": "MIN",
-            "home": "SAS"
+            "away": "CLE",
+            "home": "DET"
         }
 
     ]
